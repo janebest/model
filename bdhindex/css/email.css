@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+.bread{
+	border-bottom:1px solid #eee;
+	padding:5px 0px 10px 0px;
+	font-size:14px;
+	font-weight:normal;
+	color:#999;
+	margin-top: 145px;
+    margin-left: 275px;
+	}
+.bread a{
+	color:#999;
+	font-size:14px;
+	}
+.bread a:hover{
+	text-decoration:underline;
+	}
+	
+.titlelist{
+	width:95%;
+	margin:auto;
+	margin-top:20px;
+	margin-left: 300px;
+	}
+.titlelist h1{
+	font-size:24px;
+	width:500px;
+	float:left;
+	font-weight:normal;
+	}
+
+.titlelist h1 span{
+	font-size:18px;
+	color:#d7d6d6;
+	font-family:'Gill Sans MT';
+	}
+	
+.bbstab{
+	float:left;
+	width:810px;
+    margin-top: -14px;
+    margin-left: 301px;
+    position:relative;
+	top:21px;
+    height:36px;
+	font-weight:normal;	
+	}
+.bbstab a{
+	float:left;
+	margin-right:5px;
+	background:url(../img/bbstab.gif) no-repeat;
+	color:#333;
+	width:110px;
+	height:36px;
+	text-align:center;
+	font-size:15px;
+	padding-top:6px;
+	text-decoration:none;
+	}
+.bbstab a:hover, .bbstab .now{
+	background:url(../img/bbstab1.gif) no-repeat;
+	color:#1777b5
+	}
+	
+.bbs{
+    float: Left;
+    width: 1047px;
+    margin-top: 4px;
+    border: 1px solid #2E92CD;
+    margin-bottom: 20px;
+    margin-left: 301px;
+    height: 340px;
+	}
+.bbs tbody tr td {
+	font-size: 12px;
+	border-bottom: 1px dashed #d5d5d5;
+}
+.sub {
+	background-color: #1387d1;
+	color: #FFFFFF;
+}
+
+.bbss{
+	float: Left;
+    width: 1047px;
+    margin-top: 4px;
+    border: 1px solid #2E92CD;
+    margin-bottom: 20px;
+    margin-left: 301px;
+    height: 130px;
+}
+.bbss tbody tr td {
+	width: 80px;
+	font-size: 12px;
+	border-bottom: 1px dashed #d5d5d5;
+}
+.check {
+	background-color:#e5a305 ;
+	color: #FFFFFF;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="css/bbs.css">
+</head>
+<style type="text/css">
+	.change {
+		border: 3px solid red;
+		color: red;
+	}
+</style>
+<body>
+	<div class="right">
+	    <h1>领导信箱
+	        <span>LEADER EMAIL</span></h1>
+	    <p class="bbstab" id="bbstab">
+	        <a href="#" class="now" id="b0" title="0">我要写信</a>
+	        <a href="#" id="b1" class="" title="1">查看回复</a>
+	    </p>
+	    <div class="bbs">
+	        <form action="" method="post" name="myform">
+	            <table id="tab1" width="100%" border="0" cellspacing="1" cellpadding="3" class="errorbbs" style="display: block;">
+	                <tbody>
+	                    <tr>
+	                        <td height="40" align="right">真实姓名：</td>
+	                        <td width="215" height="43" align="left">
+	                            <input name="realname" type="text" id="realname" size="30">
+	                            <span class="red">*</span></td>
+	                        <td width="111" align="right">身份证号：</td>
+	                        <td width="341" align="left">
+	                            <input name="idnum" type="text" id="idnum" size="30">
+	                            <span class="red">*</span></td>
+	                    </tr>
+	                    <tr>
+	                        <td height="40" align="right">联系电话：</td>
+	                        <td>
+	                            <input name="phonenum" type="text" id="phonenum" size="30"></td>
+	                        <td align="right">Email：</td>
+	                        <td>
+	                            <input name="email" type="text" id="email" size="30"></td>
+	                    </tr>
+	                    <tr>
+	                        <td width="112" height="103" align="right">咨询内容：</td>
+	                        <td colspan="3">
+	                            <textarea name="message" cols="75" rows="5" id="message"></textarea>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td height="40" align="right">验证码：</td>
+	                        <td colspan="3">
+	                            <input name="code" type="text" id="codefield" size="10">
+	                            <span style="margin-top:10px;">
+	                                <img id="code_img" onclick="this.src=this.src+&quot;&amp;&quot;+Math.random()" src="http://www.beidaihe.gov.cn/api.php?op=checkcode&amp;code_len=4&amp;font_size=20&amp;width=130&amp;height=50&amp;font_color=&amp;background=" style="margin-bottom: -15px;"></span>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td height="56" align="right">&nbsp;</td>
+	                        <td colspan="3">
+	                            <input type="submit" name="submit" id="submit" value="提交留言" class="sub" onclick="javascript:return identify();"></td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </form>
+
+	        <form action="http://www.beidaihe.gov.cn/index.php?m=content&amp;c=index&amp;a=mail_review" id="mail_review">
+	            <table id="tab2" width="100%" border="0" cellspacing="1" cellpadding="3" class="errorbbs" style="display: none;">
+	                <tbody>
+	                    <tr>
+	                        <td width="118" height="50" align="right">真实姓名：</td>
+	                        <td width="184" height="50" align="left">
+	                            <input id="c_realname" type="text" size="30"></td>
+	                        <td width="95" align="right">身份证号：</td>
+	                        <td width="382" align="left">
+	                            <input id="c_idnum" type="text" size="30"></td>
+	                    </tr>
+	                    <tr>
+	                        <td height="54" align="right">&nbsp;</td>
+	                        <td colspan="3">
+	                            <input type="button" id="c_review" value="查看回复" class="check"></td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </form>
+	    </div>
+	    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bm" id="review" style="display:none;margin-bottom:60px;">
+	        <tbody>
+	            <tr>
+	                <th width="50%" height="36" scope="col">信件内容</th>
+	                <th width="50%" scope="col">回复内容</th></tr>
+	        </tbody>
+	    </table>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<!--<script type="text/javascript" src="js/javascript.js"></script>-->
+<script type="text/javascript" src="js/jquery.js"></script>
+</html>
