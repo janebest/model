@@ -1,55 +1,78 @@
-const express=require('express');
-const path=require('path');
-const app=express();//创建一个服务器
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const moment=require('moment');
+const app = express();
+app.locals.moment=moment;
 
-var login=false;
-app.get('/login',function(req,res){
-    res.set("content-type","text/plain;charset=utf8")
-    res.end("请登录");
-})
+//框架内置的静态资源读取中间件
+app.use(express.static(path.join(__dirname,"public")));//静态文件处理
+app.use(express.static(path.join(__dirname,"uploads")));//静态文件处理
 
-app.get("/add/:id/:num",function(req,res){
-    res.set("content-type","text/plain;charset=utf8")
-    if(!login){
-        res.redirect("/login")
-    }
-    
+//自己封装静态资源读取中间件
+// app.use(function (req, res, next) {
+//     var router = path.join(__dirname, "public", req.url);
+//     if (fs.existsSync(router)) {
+//         res.end(fs.readFileSync(router)); //存在读取相应文件
+//     } else {
+//         next(); //不存在接着往下判断
+//     }
+// })
+//bodyparser加载
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+// parse application/json
+app.use(bodyParser.json())
 
-    res.end("可以购物");
+//模板引擎设置
+//模板文件位置
+app.set('views',path.join(__dirname,"views"));
+//模板类型  ejs
+app.set('view engine','ejs');
+
+
+//路由引入
+//index 首页
+    //add  update  delete   find
+
+    //  /index/add 首页增
+    //  /index/update 首页改
+    //  /index/delete 首页删
+    //  /index/find 首页查
+
+//server  服务窗
+    //add  update  delete   find
+//search  探索
+    //add  update  delete   find
+//rich   财富
+    //add  update  delete   find
+app.use("/index",require('./routes/index.js'))
+app.use("/server",require('./routes/server.js'))
+app.use("/search",require('./routes/search.js'))
+app.use("/rich",require('./routes/rich.js'))
+app.use("/add",require('./routes/add.js'))
 
 
 
-    //console.log(req.query);
-    //console.log(req.originalUrl);
-    //console.log(req.route);
-    //console.log(req.path);
-    //console.log(req.params)
-   // res.write();//string  buffer
-    //array  object
 
-    res.status(200);
-   // res.type("text/html");
-    // res.set({
-    //     "content-type",
-    //     "content-length"
-    // })
-   // res.end("add");
-//    res.json({
-//        username:"123",
-//        password:"456"
-//    })
-//res.sendFile(path.join(__dirname,"package.json"));
-//res.send([1,2,3,4,5,6])
-  //res.download("./package.json","1.json")
 
-})
-app.get('/delete',function(req,res){
-    res.end('delete')
-})
-app.post("/",function(req,res){
-    res.end('123');
-})
-app.post('/add',function(req,res){
-    res.end('456')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.use(function(err,req,res,next){
+    res.setHeader('content-type',"text/plain;charset=utf8");
+    res.end("页面没有找到");
 })
 app.listen(4000);
